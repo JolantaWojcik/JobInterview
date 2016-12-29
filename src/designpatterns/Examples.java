@@ -39,7 +39,8 @@ public class Examples {
 		//Jakie znasz wzorce projektowe w JDK ktore sa popularnie uzywane?
 		
 		//iterator - abstrakcyjny sposb przegladania kolekcji
-		//iterator dostaracza Ci sposob przegladania kolekcji bez przejmowania sie tym jak ona jest "wewnatrz" zbudowana
+		//iterator dostaracza Ci sposob przegladania kolekcji bez przejmowania sie tym jak ona jest 
+		//"wewnatrz" zbudowana
 		
 		
 		Set<Integer> tab = new HashSet<>(Arrays.asList(5,4,3));
@@ -105,7 +106,7 @@ public class Examples {
 			
 			//factory - ktory pozwala Ci stworzyc obiekt "nazwany konstruktor"
 			
-			Osoba bezdomniak = OsobaFactory.stworzBezrobotnego("jan", "kowalski", "....");
+			Osoba bezdomny = OsobaFactory.stworzBezrobotnego("jan", "kowalski", "....");
 			
 			//Builder - sluzy do tworzenia obiektow.
 			//konkretnie: jesli obiekt ma bardzo duzo opcjonalnych abtrybutow i nie mozemy uzyc wzorca 
@@ -125,11 +126,17 @@ public class Examples {
 //			Decorator doesn't create object, instead it get object in it's constructor, 
 //			while Proxy actually creates objects.
 			
+			//The delegation design pattern allows an object to delegate one or more tasks to a helper object. 
+			//Two classes are used to achieve this; the delegate and delegator, both which realise 
+			//a common interface. A method (or methods) on the interface represent the functionality 
+			//to be delegated. A call to the delegator calls the matching function on the delegate.
+
+			
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			// The interface limits access to just the methods you want
 			// made accessible
 			Osoba o = new Osoba("Ania", "Nowak", "90040808945");
-			PobierzDaneOsoby osobaProxy = new OsobaProxy(o.getImie(), o.getNazwisko(), o.getPesel());
+			PobierzDaneOsoby osobaProxy = new OsobaProxy(o);
 			System.out.println("\n#### " + osobaProxy.getData());
 
 			//template method
