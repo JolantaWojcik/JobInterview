@@ -5,22 +5,24 @@ import java.util.Arrays;
 public class MergeSort {
 
 	public static void main(String[] args) {
-		int[] list = {1,5,7,2,3,4};
-		int[] result = mergeSort(list, 0, list.length);
+		int[] list = {1,5,7,2,9,3,11};
+		MergeSort ms = new MergeSort();
+		int[] result = ms.mergeSort(list);
 		System.out.println(Arrays.toString(result));
 	}
 	
-	public static int[] mergeSort(int[] list, int start, int end){
-		if(start==end){
-			throw new IllegalArgumentException("List to short!");
-		}
-		int middleValue = (start+end)/2;
-		int[] leftList = mergeSort(list,0,middleValue);
-		int[] rightList= mergeSort(list, middleValue, list.length);
-		return merge(leftList, rightList);
+	public int[] mergeSort(int[] list){
+//		if(list.length<=1){
+//			throw new IllegalArgumentException("List to short!");
+//		}
+		int middleValue = list.length/2;
+		int[] right = mergeSort(Arrays.copyOfRange(list, 0, middleValue));
+		int[] left = mergeSort(Arrays.copyOfRange(list, middleValue, list.length));
+		//int[] rightList= mergeSort(list, middleValue, list.length);
+		return merge(right, left);
 	}
 	
-	public static int[] merge(int[] leftList, int[] rightList){
+	public int[] merge(int[] leftList, int[] rightList){
 		int[] result = new int[leftList.length+rightList.length];
 		int resultIndex = 0;
 		int firstArrayIndex=0;
@@ -38,5 +40,4 @@ public class MergeSort {
 		}
 		return result;
 	}
-
 }
