@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -13,6 +14,11 @@ import java.util.stream.Collectors;
 //NWW, NWD itp 
 public class LiveCodingProblems {
 	public static void main(String[] args) {
+		Map<String, String> map = new HashMap<>();
+		map.replace("b", "name");
+		if(map==null){
+			
+		}
 		
 		List<Integer> elements = Collections.unmodifiableList(Arrays.asList(1, 2, 3, 4, 5));
 		System.out.println(topN(3, elements));
